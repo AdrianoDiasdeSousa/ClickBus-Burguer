@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro - ClickBus Burguer</title>
+
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/cadastro.css" />
+  </head>
+
+  <body>
+    <header class="topo">
+      <a href="index.html" class="area-logo">
+        <img src="img/logo-topo.png" alt="Logo ClickBus Burguer" />
+      </a>
+
+      <a href="login.html" class="botao-voltar">↩ Voltar</a>
+    </header>
+
+    <main class="pagina-cadastro">
+      <section class="cadastro-container">
+        <h1>Cadastro de usuário</h1>
+
+        <form class="form-cadastro" onsubmit="fazerCadastro(event)">
+          <label for="nome">Nome</label>
+          <input
+            type="text"
+            id="nome"
+            placeholder="Digite seu nome completo"
+            required
+          />
+
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Digite seu email"
+            required
+          />
+
+          <label for="senha">Senha</label>
+          <input
+            type="password"
+            id="senha"
+            placeholder="Crie uma senha"
+            required
+          />
+
+          <label for="confirmar-senha">Confirmar senha</label>
+          <input
+            type="password"
+            id="confirmar-senha"
+            placeholder="Confirme sua senha"
+            required
+          />
+
+          <label for="endereco">Endereço</label>
+          <input
+            type="text"
+            id="endereco"
+            placeholder="Digite seu endereço"
+            required
+          />
+
+          <label for="telefone">Telefone</label>
+          <input
+            type="tel"
+            id="telefone"
+            placeholder="Digite seu telefone"
+            required
+          />
+
+          <button type="submit" class="botao-cadastrar">Cadastrar</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

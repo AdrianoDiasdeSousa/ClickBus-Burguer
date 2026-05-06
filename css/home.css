@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: white;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url("../img/Fundo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Barra igual à tela de login */
+.topo {
+  height: 70px;
+  background-color: #8278df;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 55px;
+}
+
+.logo-topo {
+  width: 145px;
+}
+
+.menu {
+  display: flex;
+  gap: 30px;
+}
+
+.menu a {
+  background-color: #4157ff;
+  color: white;
+  text-decoration: none;
+  font-family: Georgia, serif;
+  font-size: 18px;
+  padding: 8px 26px;
+  border-radius: 14px;
+}
+
+.menu a:hover {
+  background-color: #263cff;
+}
+
+/* Conteúdo da página inicial */
+.principal {
+  min-height: calc(100vh - 70px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 75px;
+}
+
+.principal h1 {
+  color: white;
+  font-family: Georgia, serif;
+  font-size: 38px;
+  font-weight: normal;
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.logo-principal {
+  width: 380px;
+  max-width: 80%;
+}
