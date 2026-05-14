@@ -1,0 +1,125 @@
+.pagina-perfil {
+  min-height: calc(100vh - 80px);
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.25)),
+    url("../img/fundo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-left: 6px solid #111;
+  border-right: 6px solid #111;
+  border-bottom: 6px solid #111;
+  padding: 70px 20px 60px;
+  color: white;
+}
+
+.perfil-container {
+  width: 720px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.cabecalho-perfil {
+  position: relative;
+  margin-bottom: 35px;
+  text-align: center;
+}
+
+.cabecalho-perfil h1 {
+  font-size: 32px;
+  font-weight: normal;
+}
+
+.status-loja {
+  position: absolute;
+  right: -125px;
+  top: 0;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 12px;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.status-loja.aberto {
+  background-color: #10c43a;
+}
+
+.status-loja.fechado {
+  background-color: #e00000;
+}
+
+.form-perfil {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-perfil label {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.form-perfil input {
+  height: 34px;
+  margin-bottom: 16px;
+  padding: 0 10px;
+  border: none;
+  outline: none;
+  background-color: #ddd;
+  color: #111;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+}
+
+@media (max-width: 900px) {
+  .perfil-container {
+    width: 100%;
+  }
+
+  .cabecalho-perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .status-loja {
+    position: static;
+    font-size: 24px;
+  }
+
+  .cabecalho-perfil h1 {
+    font-size: 30px;
+  }
+
+  .form-perfil input {
+    font-size: 18px;
+  }
+}
+.btn-salvar-perfil {
+  align-self: center;
+  margin-top: 18px;
+  background-color: #e88700;
+  color: #111;
+  border: none;
+  border-radius: 16px;
+  padding: 10px 34px;
+  font-size: 24px;
+  font-family: Georgia, "Times New Roman", serif;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-salvar-perfil:hover {
+  background-color: #d17800;
+  transform: scale(1.03);
+}
+
+.form-perfil input.editavel {
+  background-color: #fff;
+  border: 2px solid #e88700;
+}
+
+.oculto {
+  display: none;
+}

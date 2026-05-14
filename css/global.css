@@ -10,7 +10,7 @@ body {
   font-family: Georgia, "Times New Roman", serif;
 }
 
-/* Cabeçalho */
+/* CABEÇALHO PADRÃO DO SITE */
 
 .topo {
   width: 100%;
@@ -29,11 +29,15 @@ body {
   text-decoration: none;
 }
 
-.area-logo img {
-  width: 150px;
+.area-logo img,
+.logo-topo,
+.logo-area img {
+  width: 145px;
   height: auto;
   display: block;
 }
+
+/* MENU DO TOPO */
 
 .menu {
   display: flex;
@@ -45,9 +49,9 @@ body {
   background-color: #4657ff;
   color: #fff;
   text-decoration: none;
-  padding: 9px 28px;
-  border-radius: 16px;
-  font-size: 24px;
+  padding: 7px 22px;
+  border-radius: 14px;
+  font-size: 19px;
   transition: 0.3s;
 }
 
@@ -56,16 +60,20 @@ body {
   transform: scale(1.05);
 }
 
+/* BOTÃO VOLTAR PADRÃO */
+
 .botao-voltar {
   background-color: #ff8c00;
   color: #111;
   text-decoration: none;
-  padding: 10px 28px;
-  border-radius: 18px;
-  font-size: 20px;
+  padding: 7px 22px;
+  border-radius: 14px;
+  font-size: 19px;
   font-family: Arial, sans-serif;
   display: inline-block;
   transition: 0.3s;
+  border: none;
+  cursor: pointer;
 }
 
 .botao-voltar:hover {
@@ -73,18 +81,21 @@ body {
   transform: scale(1.05);
 }
 
-/* Responsivo geral */
+/* RESPONSIVO GERAL */
 
 @media (max-width: 768px) {
   .topo {
     height: auto;
+    min-height: 80px;
     flex-direction: column;
     gap: 15px;
     padding: 15px;
   }
 
-  .area-logo img {
-    width: 135px;
+  .area-logo img,
+  .logo-topo,
+  .logo-area img {
+    width: 125px;
   }
 
   .menu {
@@ -100,6 +111,6 @@ body {
 
   .botao-voltar {
     font-size: 16px;
-    padding: 8px 18px;
+    padding: 7px 16px;
   }
 }

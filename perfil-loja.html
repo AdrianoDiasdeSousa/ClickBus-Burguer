@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil da Loja - ClickBus Burguer</title>
+
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/perfil-loja.css" />
+  </head>
+
+  <body>
+    <header class="topo">
+      <a href="index.html" class="area-logo">
+        <img src="img/logo-topo.png" alt="Logo ClickBus Burguer" />
+      </a>
+
+      <a href="cardapio.html" class="botao-voltar">↩ Voltar</a>
+    </header>
+
+    <main class="pagina-perfil">
+      <section class="perfil-container">
+        <div class="cabecalho-perfil">
+          <h1>Perfil da Loja</h1>
+          <span id="statusLoja" class="status-loja">Verificando...</span>
+        </div>
+
+        <form class="form-perfil" onsubmit="salvarPerfilLoja(event)">
+          <label for="nomeLoja">Nome da loja</label>
+          <input type="text" id="nomeLoja" readonly />
+
+          <label for="categoriaLoja">Categoria</label>
+          <input type="text" id="categoriaLoja" readonly />
+
+          <label for="enderecoLoja">Endereço</label>
+          <input type="text" id="enderecoLoja" readonly />
+
+          <label for="telefoneLoja">Telefone</label>
+          <input type="text" id="telefoneLoja" readonly />
+
+          <label for="horarioLoja">Horário de funcionamento</label>
+          <input type="text" id="horarioLoja" readonly />
+
+          <label for="diasLoja">Dias de funcionamento</label>
+          <input type="text" id="diasLoja" readonly />
+
+          <button
+            type="submit"
+            id="btnSalvarPerfilLoja"
+            class="btn-salvar-perfil oculto"
+          >
+            Salvar alterações
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

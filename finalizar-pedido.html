@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finalizar Pedido - ClickBus Burguer</title>
+
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/finalizar-pedido.css" />
+  </head>
+
+  <body>
+    <header class="topo">
+      <a href="index.html" class="area-logo">
+        <img src="img/logo-topo.png" alt="Logo ClickBus Burguer" />
+      </a>
+    </header>
+
+    <main class="pagina-finalizacao">
+      <section class="finalizacao-container">
+        <a href="carrinho.html" class="barra-editar-carrinho">
+          <span class="seta-editar">‹</span>
+          <img
+            src="img/Carrino.png"
+            alt="Carrinho"
+            class="img-carrinho-finalizacao"
+          />
+          <span>Editar Carrinho</span>
+        </a>
+
+        <section class="dados-entrega">
+          <div class="texto-entrega">
+            <p>Este pedido será entregue a:</p>
+            <strong id="nomeEntrega">Maria Gomes Cirqueira</strong>
+            <span id="telefoneEntrega">(63) 99984-8134</span>
+          </div>
+
+          <button type="button" class="btn-trocar" onclick="trocarCliente()">
+            Trocar
+          </button>
+        </section>
+
+        <section class="bloco-finalizacao">
+          <h2>Escolha como receber o pedido</h2>
+
+          <div class="caixa-opcoes">
+            <button
+              type="button"
+              class="btn-novo-endereco"
+              onclick="cadastrarNovoEndereco()"
+            >
+              Cadastrar novo endereço
+            </button>
+
+            <label class="opcao-item">
+              <div class="opcao-texto">
+                <strong>Endereço de Entrega</strong>
+
+                <span id="enderecoEntrega">
+                  Rua 01 Número 1132 Setor Oeste<br />
+                  Sandolândia - TO
+                </span>
+
+                <button
+                  type="button"
+                  class="btn-excluir"
+                  onclick="excluirEnderecoEntrega(event)"
+                >
+                  Excluir
+                </button>
+              </div>
+
+              <input
+                type="radio"
+                name="formaRecebimento"
+                value="entrega"
+                checked
+              />
+            </label>
+
+            <label class="opcao-item">
+              <div class="opcao-texto">
+                <strong>Retirar no Estabelecimento</strong>
+                <span>
+                  Avenida Joaquim Rodrigues de Moraes em frente a praça central
+                </span>
+              </div>
+
+              <input type="radio" name="formaRecebimento" value="retirada" />
+            </label>
+          </div>
+        </section>
+
+        <section class="bloco-finalizacao">
+          <h2>Escolha a forma de pagamento</h2>
+
+          <div class="caixa-opcoes pagamento-box">
+            <div class="titulo-pagamento">Pagamento na entrega</div>
+
+            <label class="opcao-item pagamento-item">
+              <div class="opcao-texto pagamento-texto">
+                <img
+                  src="img/Dinheiro.png"
+                  alt="Dinheiro"
+                  class="img-pagamento"
+                />
+                <strong>Dinheiro</strong>
+              </div>
+
+              <input type="radio" name="formaPagamento" value="dinheiro" />
+            </label>
+
+            <label class="opcao-item pagamento-item">
+              <div class="opcao-texto pagamento-texto">
+                <img src="img/Cartão.png" alt="Cartão" class="img-pagamento" />
+                <strong>Cartão</strong>
+              </div>
+
+              <input
+                type="radio"
+                name="formaPagamento"
+                value="cartao"
+                checked
+              />
+            </label>
+
+            <label class="opcao-item pagamento-item">
+              <div class="opcao-texto pagamento-texto">
+                <img src="img/pix.png" alt="Pix" class="img-pagamento" />
+                <strong>Pix</strong>
+              </div>
+
+              <input type="radio" name="formaPagamento" value="pix" />
+            </label>
+          </div>
+        </section>
+
+        <div class="resumo-finalizacao">
+          <div class="resumo-card">
+            Total de Produtos <span id="totalProdutosFinal">00</span>
+          </div>
+
+          <div class="resumo-card">
+            Valor Total: <span id="valorTotalFinal">R$ 0,00</span>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          class="btn-confirmar-pedido"
+          onclick="confirmarPedido()"
+        >
+          Confirmar Pedido
+        </button>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
