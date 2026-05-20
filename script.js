@@ -175,7 +175,7 @@ const produtosPadrao = [
     nome: "Batata Frita",
     descricao: "",
     preco: 5,
-    imagem: "img/produtos/porcao-batata.png",
+    imagem: "img/produtos/batata.png",
     quantidade: 0,
   },
   {
@@ -462,8 +462,9 @@ function renderizarCardapio() {
             admin
               ? `
                 <div class="admin-acoes">
-                  <button type="button" onclick="editarProduto(${produto.id})">Editar produto</button>
-                  <button type="button" onclick="editarImagemProduto(${produto.id})">Editar imagem</button>
+                <button type="button" onclick="editarProduto(${produto.id})">Editar produto</button>
+                <button type="button" onclick="editarImagemProduto(${produto.id})">Editar imagem</button>
+                <button type="button" onclick="excluirProduto(${produto.id})">Excluir produto</button>
                 </div>
               `
               : ""
@@ -634,7 +635,109 @@ function editarImagemProduto(id) {
 
   inputArquivo.click();
 }
+function excluirProduto(id) {
+  if (!usuarioEhAdmin()) {
+    alert("Apenas o administrador pode excluir produtos.");
+    return;
+  }
 
+  const produtos = carregarProdutos();
+  const produto = produtos.find((item) => item.id === id);
+
+  if (!produto) {
+    alert("Produto não encontrado.");
+    return;
+  }
+
+  const confirmar = confirm(
+    `Tem certeza que deseja excluir o produto "${produto.nome}"?`,
+  );
+
+  if (!confirmar) {
+    return;
+  }
+
+  const produtosAtualizados = produtos.filter((item) => item.id !== id);
+
+  salvarProdutos(produtosAtualizados);
+
+  const pedidoAtual = JSON.parse(localStorage.getItem("pedidoAtual")) || [];
+  const pedidoAtualAtualizado = pedidoAtual.filter((item) => item.id !== id);
+  localStorage.setItem("pedidoAtual", JSON.stringify(pedidoAtualAtualizado));
+
+  renderizarCardapio();
+
+  alert("Produto excluído com sucesso!");
+}
+function cadastrarNovoProduto() {
+  if (!usuarioEhAdmin()) {
+    alert("Apenas o administrador pode cadastrar produtos.");
+    return;
+  }
+
+  const nome = prompt("Nome do produto:");
+
+  if (!nome || nome.trim() === "") {
+    alert("O nome do produto é obrigatório.");
+    return;
+  }
+
+  const descricao = prompt("Descrição do produto:") || "";
+
+  const preco = prompt("Preço do produto. Exemplo: 15,00");
+
+  if (!preco || preco.trim() === "") {
+    alert("O preço do produto é obrigatório.");
+    return;
+  }
+
+  const precoConvertido = Number(preco.replace(",", "."));
+
+  if (isNaN(precoConvertido) || precoConvertido <= 0) {
+    alert("Digite um preço válido.");
+    return;
+  }
+
+  let categoria = prompt("Categoria do produto: lanche ou bebida");
+
+  if (!categoria) {
+    alert("A categoria é obrigatória.");
+    return;
+  }
+
+  categoria = categoria.trim().toLowerCase();
+
+  if (categoria !== "lanche" && categoria !== "bebida") {
+    alert("Categoria inválida. Use apenas: lanche ou bebida.");
+    return;
+  }
+
+  const produtos = carregarProdutos();
+
+  const maiorId =
+    produtos.length > 0
+      ? Math.max(...produtos.map((produto) => Number(produto.id)))
+      : 0;
+
+  const novoProduto = {
+    id: maiorId + 1,
+    categoria: categoria,
+    nome: nome.trim(),
+    descricao: descricao.trim(),
+    preco: precoConvertido,
+    imagem: "",
+    quantidade: 0,
+  };
+
+  produtos.push(novoProduto);
+
+  salvarProdutos(produtos);
+  renderizarCardapio();
+
+  alert(
+    "Produto cadastrado com sucesso! Agora você pode editar a imagem dele.",
+  );
+}
 function avancarPedido() {
   const produtos = carregarProdutos();
 
